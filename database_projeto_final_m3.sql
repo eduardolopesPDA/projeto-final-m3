@@ -120,7 +120,7 @@ CREATE TABLE avaliacao (
     produto_id INT,
     nota INT CHECK(nota BETWEEN 1 AND 5),
     comentario TEXT,
-    data DATE DEFAULT CURRENT_DATE,
+    data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (id_usuarios) REFERENCES usuarios(id) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -142,7 +142,7 @@ CREATE TABLE moderacao (
     chat_id INT,
     avaliacao_id INT,
     produto_id INT,
-    data DATE DEFAULT CURRENT_DATE,
+   data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     motivo TEXT NOT NULL,
     create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -273,6 +273,8 @@ BEGIN
 END //
 DELIMITER ;
 
+DELIMITER //
+
 -- inserir dados na tabela `avaliacao`
 DELIMITER //
 CREATE PROCEDURE InserirAvaliacao(
@@ -312,3 +314,131 @@ BEGIN
     VALUES (p_chat_id, p_avaliacao_id, p_produto_id, p_motivo);
 END //
 DELIMITER ;
+CALL InserirUsuario('João Silva', 'Rua A, 123', 'joao@email.com', 'senha123', '11987654321');
+CALL InserirUsuario('Maria Oliveira', 'Rua B, 456', 'maria@email.com', 'senha456', '11987654322');
+CALL InserirUsuario('Carlos Souza', 'Rua C, 789', 'carlos@email.com', 'senha789', '11987654323');
+CALL InserirUsuario('Ana Lima', 'Rua D, 101', 'ana@email.com', 'senha101', '11987654324');
+CALL InserirUsuario('Pedro Santos', 'Rua E, 202', 'pedro@email.com', 'senha202', '11987654325');
+CALL InserirUsuario('Fernanda Costa', 'Rua F, 303', 'fernanda@email.com', 'senha303', '11987654326');
+CALL InserirUsuario('Ricardo Mendes', 'Rua G, 404', 'ricardo@email.com', 'senha404', '11987654327');
+CALL InserirUsuario('Juliana Martins', 'Rua H, 505', 'juliana@email.com', 'senha505', '11987654328');
+CALL InserirUsuario('Lucas Rocha', 'Rua I, 606', 'lucas@email.com', 'senha606', '11987654329');
+CALL InserirUsuario('Carla Ferreira', 'Rua J, 707', 'carla@email.com', 'senha707', '11987654330');
+-- 2
+CALL InserirCategoria('Eletrônicos', 'Aparelhos eletrônicos em geral');
+CALL InserirCategoria('Roupas', 'Vestuário masculino e feminino');
+CALL InserirCategoria('Alimentos', 'Produtos alimentícios variados');
+CALL InserirCategoria('Livros', 'Livros de diversos gêneros');
+CALL InserirCategoria('Brinquedos', 'Brinquedos para crianças de todas as idades');
+CALL InserirCategoria('Móveis', 'Móveis para casa e escritório');
+CALL InserirCategoria('Esportes', 'Artigos esportivos e fitness');
+CALL InserirCategoria('Ferramentas', 'Ferramentas para construção e manutenção');
+CALL InserirCategoria('Automotivo', 'Produtos e acessórios para automóveis');
+CALL InserirCategoria('Beleza', 'Produtos de beleza e cuidados pessoais');
+
+CALL InserirCatalogo(1, 'Coleção Verão', 'Roupas para a estação mais quente do ano');
+CALL InserirCatalogo(2, 'Promoção de Eletrônicos', 'Descontos imperdíveis');
+CALL InserirCatalogo(3, 'Livros Recomendados', 'Os mais vendidos do mês');
+CALL InserirCatalogo(4, 'Brinquedos Educativos', 'Para aprender brincando');
+CALL InserirCatalogo(5, 'Suplementos Esportivos', 'Para melhorar sua performance');
+CALL InserirCatalogo(6, 'Ferramentas de Qualidade', 'Para profissionais e hobbistas');
+CALL InserirCatalogo(7, 'Promoção Automotiva', 'Descontos em peças e acessórios');
+CALL InserirCatalogo(8, 'Beleza e Cuidado', 'Novidades em cosméticos');
+CALL InserirCatalogo(9, 'Moveis para sua Casa', 'Design e conforto');
+CALL InserirCatalogo(10, 'Produtos Gourmet', 'Para os amantes da boa comida');
+-- 4
+CALL InserirProduto(1, 1, 'Smartphone X', 'Celular de última geração', 2500.00, 10, 'Marca A');
+CALL InserirProduto(2, 2, 'Camisa Polo', 'Camisa social confortável', 99.90, 50, 'Marca B');
+CALL InserirProduto(3, 3, 'Chocolate 70%', 'Chocolate amargo gourmet', 15.50, 200, 'Marca C');
+CALL InserirProduto(4, 4, 'Livro de Programação', 'Aprenda a programar em Python', 79.90, 30, 'Editora D');
+CALL InserirProduto(5, 5, 'Carrinho de Controle Remoto', 'Brinquedo elétrico', 120.00, 20, 'Marca E');
+CALL InserirProduto(6, 6, 'Sofá 3 lugares', 'Sofá confortável', 1500.00, 5, 'Marca F');
+CALL InserirProduto(7, 7, 'Bola de Futebol', 'Bola oficial de campeonato', 89.90, 40, 'Marca G');
+CALL InserirProduto(8, 8, 'Chave de Fenda', 'Conjunto de chaves variadas', 49.90, 100, 'Marca H');
+CALL InserirProduto(9, 9, 'Óleo para Motor', 'Óleo sintético para carros', 59.90, 30, 'Marca I');
+CALL InserirProduto(10, 10, 'Perfume Floral', 'Fragrância refrescante', 199.90, 15, 'Marca J');
+
+
+
+
+-- 5
+CALL InserirCarrinho(1);
+CALL InserirCarrinho(2);
+CALL InserirCarrinho(3);
+CALL InserirCarrinho(4);
+CALL InserirCarrinho(5);
+CALL InserirCarrinho(6);
+CALL InserirCarrinho(7);
+CALL InserirCarrinho(8);
+CALL InserirCarrinho(9);
+CALL InserirCarrinho(10);
+ 
+ 
+ -- 6
+CALL InserirItemCarrinho(1, 1, 2500.00, 1);
+CALL InserirItemCarrinho(2, 2, 99.90, 2);
+CALL InserirItemCarrinho(3, 3, 15.50, 5);
+CALL InserirItemCarrinho(4, 4, 79.90, 1);
+CALL InserirItemCarrinho(5, 5, 120.00, 2);
+CALL InserirItemCarrinho(6, 6, 1500.00, 1);
+CALL InserirItemCarrinho(7, 7, 89.90, 3);
+CALL InserirItemCarrinho(8, 8, 49.90, 4);
+CALL InserirItemCarrinho(9, 9, 59.90, 2);
+CALL InserirItemCarrinho(10, 10, 199.90, 1);
+
+
+-- 7
+CALL InserirCompra(1, 5000.00);
+CALL InserirCompra(2, 200.00);
+CALL InserirCompra(3, 77.50);
+CALL InserirCompra(4, 150.00);
+CALL InserirCompra(5, 320.00);
+CALL InserirCompra(6, 1800.00);
+CALL InserirCompra(7, 270.00);
+CALL InserirCompra(8, 200.00);
+CALL InserirCompra(9, 89.90);
+CALL InserirCompra(10, 300.00);
+
+-- 8
+CALL InserirEntrega(1, 'Rua A, 123', '2025-03-15', '2025-03-20');
+ -- CALL InserirEntrega(2, 'Rua B, 456', '2025-03-16', '2025-03-26'); 
+CALL InserirEntrega(3, 'Rua C, 789', '2025-03-17', '2025-03-23');
+CALL InserirEntrega(4, 'Rua D, 101', '2025-03-18', '2025-03-27');
+CALL InserirEntrega(5, 'Rua E, 202', '2025-03-19', '2025-03-24');
+CALL InserirEntrega(6, 'Rua F, 303', '2025-03-20', '2025-03-30');
+CALL InserirEntrega(7, 'Rua G, 404', '2025-03-21', '2025-03-29');
+CALL InserirEntrega(8, 'Rua H, 505', '2025-03-22', '2025-03-28');
+CALL InserirEntrega(9, 'Rua I, 606', '2025-03-23', '2025-03-31');
+CALL InserirEntrega(10, 'Rua J, 707', '2025-03-24', '2025-04-01');
+
+
+-- 9
+CALL InserirAvaliacao(1, 1, 5, 'Ótimo');
+CALL InserirAvaliacao(2, 2, 4, 'Bom');
+CALL InserirAvaliacao(3, 3, 3, 'Médio');
+CALL InserirAvaliacao(4, 4, 5, 'Ótimo');
+CALL InserirAvaliacao(5, 5, 4, 'Bom');
+CALL InserirAvaliacao(6, 6, 5, 'Ótimo');
+CALL InserirAvaliacao(7, 7, 3, 'Médio');
+CALL InserirAvaliacao(8, 8, 4, 'Bom');
+CALL InserirAvaliacao(9, 9, 2, 'Ruim');
+CALL InserirAvaliacao(10, 10, 3, 'Ok');
+
+
+
+-- 10 
+CALL InserirPagamento(1, 1, 'Cartão de Crédito', 5000.00);
+-- CALL InserirPagamento(2, 2, 'Boleto', 200.00);
+CALL InserirPagamento(3, 3, 'Pix', 77.50);
+CALL InserirPagamento(4, 4, 'Cartão de Débito', 150.00);
+CALL InserirPagamento(5, 5, 'Cartão de Crédito', 320.00);
+CALL InserirPagamento(6, 6, 'Boleto', 1800.00);
+CALL InserirPagamento(7, 7, 'Pix', 270.00);
+CALL InserirPagamento(8, 8, 'Cartão de Débito', 200.00);
+CALL InserirPagamento(9, 9, 'Pix', 89.90);
+CALL InserirPagamento(10, 10, 'Cartão de Crédito', 300.00);
+
+
+select * from compra
+
+
