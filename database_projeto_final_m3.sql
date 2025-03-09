@@ -375,16 +375,17 @@ CALL InserirCarrinho(10);
  
  
  -- 6
-CALL InserirItemCarrinho(1, 1, 2500.00, 1);
-CALL InserirItemCarrinho(2, 2, 99.90, 2);
-CALL InserirItemCarrinho(3, 3, 15.50, 5);
-CALL InserirItemCarrinho(4, 4, 79.90, 1);
-CALL InserirItemCarrinho(5, 5, 120.00, 2);
-CALL InserirItemCarrinho(6, 6, 1500.00, 1);
-CALL InserirItemCarrinho(7, 7, 89.90, 3);
-CALL InserirItemCarrinho(8, 8, 49.90, 4);
-CALL InserirItemCarrinho(9, 9, 59.90, 2);
-CALL InserirItemCarrinho(10, 10, 199.90, 1);
+CALL InserirProduto(1, 1, 'Smartphone X', 'Celular de última geração', 2500.00, 10, 'Marca A');
+CALL InserirProduto(2, 1, 'Notebook Ultra', 'Notebook leve e potente', 4500.00, 8, 'Marca B');
+CALL InserirProduto(3, 1, 'Fone de Ouvido Bluetooth', 'Som de alta qualidade sem fio', 299.90, 25, 'Marca C');
+CALL InserirProduto(4, 1, 'Smart TV 55"', 'Televisão 4K com HDR', 3200.00, 12, 'Marca D');
+CALL InserirProduto(5, 1, 'Console de Videogame', 'Última geração de console', 3500.00, 15, 'Marca E');
+CALL InserirProduto(6, 1, 'Tablet Pro', 'Tablet com caneta digital', 2800.00, 10, 'Marca F');
+CALL InserirProduto(7, 1, 'Câmera DSLR', 'Câmera profissional com lente 18-55mm', 5200.00, 5, 'Marca G');
+CALL InserirProduto(8, 1, 'Mouse Gamer', 'Mouse RGB com DPI ajustável', 150.00, 40, 'Marca H');
+CALL InserirProduto(9, 1, 'Roteador Wi-Fi 6', 'Alta velocidade e maior alcance', 350.00, 20, 'Marca I');
+CALL InserirProduto(10, 1, 'Carregador Portátil 20.000mAh', 'Bateria externa de alta capacidade', 180.00, 30, 'Marca J');
+
 
 
 -- 7
@@ -439,6 +440,19 @@ CALL InserirPagamento(9, 9, 'Pix', 89.90);
 CALL InserirPagamento(10, 10, 'Cartão de Crédito', 300.00);
 
 
-select * from compra
+-- produto que foi enviado entre as data 1 entre 31
+SELECT * FROM entrega WHERE data_prevista BETWEEN '2025-03-01' AND '2025-03-31';
 
+
+-- Esta consulta retorna produtos que foram comprados, ou seja, que estão na tabela item_carrinho e possuem uma compra associada.
+SELECT DISTINCT p.id, p.nome, p.descricao, p.preco, p.estoque, p.marca
+FROM produto p
+JOIN item_carrinho ic ON p.id = ic.produto_id
+JOIN compra c ON ic.carrinho_id = c.id_usuarios;
+
+-- lista uma avaliação de uma pessoa em um produto especifico 
+SELECT u.nome, a.nota, a.comentario 
+FROM avaliacao a
+JOIN usuarios u ON a.id_usuarios = u.id
+WHERE a.produto_id = 1;
 
