@@ -487,3 +487,83 @@ FROM avaliacao a
 JOIN produto p ON a.produto_id = p.id
 GROUP BY p.id, p.nome
 ORDER BY media_nota DESC;
+
+<<<<<<< HEAD
+-- Lista as categorias que possuem mais de 10 produtos cadastrados
+SELECT c.nome AS categoria, COUNT(p.id) AS total_produtos
+FROM categoria c
+JOIN produto p ON c.id = p.id_categoria
+GROUP BY c.nome
+HAVING COUNT(p.id) > 10;
+
+-- Mostra a média de valor das compras realizadas
+SELECT ROUND(AVG(valor_total), 2) AS media_valor_compras
+FROM compra;
+
+-- Lista a média de preço dos produtos por categoria
+SELECT c.nome AS categoria, ROUND(AVG(p.preco), 2) AS preco_medio
+FROM categoria c
+JOIN produto p ON c.id = p.id_categoria
+GROUP BY c.nome
+ORDER BY preco_medio DESC;
+=======
+
+-- Consulta para verificar a categoria do produto com base no preço
+
+SELECT 
+    nome,
+    preco,
+    CASE 
+        WHEN preco < 100 THEN 'Barato'
+        WHEN preco BETWEEN 100 AND 1000 THEN 'Médio'
+        ELSE 'Caro'
+    END AS categoria_preco
+FROM produto;
+
+-- Consulta para classificar os usuários com base
+
+SELECT 
+    u.nome,
+    COUNT(c.id) AS total_compras,
+    CASE 
+        WHEN COUNT(c.id) = 0 THEN 'Nenhuma compra'
+        WHEN COUNT(c.id) BETWEEN 1 AND 5 THEN 'Comprador Casual'
+        WHEN COUNT(c.id) BETWEEN 6 AND 10 THEN 'Comprador Frequente'
+        ELSE 'Comprador VIP'
+    END AS classificacao
+FROM usuarios u
+LEFT JOIN compra c ON u.id = c.id_usuarios
+GROUP BY u.id, u.nome;
+ja volto
+-- Consulta para verificar
+ 
+ SELECT 
+    e.compra_id,
+    e.endereco,
+    e.data_prevista,
+    e.data_entrega,
+    CASE 
+        WHEN e.data_entrega IS NULL THEN 'A caminho'
+        WHEN e.data_entrega <= e.data_prevista THEN 'Entregue no prazo'
+        ELSE 'Entrega atrasada'
+    END AS status_entrega
+FROM entrega e;
+
+
+--Essa consulta retorna todos os produtos com suas respectivas categorias.
+SELECT produto.id, produto.nome AS produto, categoria.nome AS categoria, produto.preco, produto.estoque
+FROM produto
+JOIN categoria ON produto.id_categoria = categoria.id;
+
+--Essa consulta exibe todas as compras feitas por um usuário com base no ID do usuário.
+SELECT compra.id, usuarios.nome AS usuario, compra.valor_total, compra.data
+FROM compra
+JOIN usuarios ON compra.id_usuarios = usuarios.id
+WHERE usuarios.id = 1; -- Substitua pelo ID desejado
+
+--Essa consulta exibe todas as compras feitas por um usuário com base no ID do usuário.
+SELECT avaliacao.id, usuarios.nome AS usuario, produto.nome AS produto, avaliacao.nota, avaliacao.comentario, avaliacao.data
+FROM avaliacao
+JOIN usuarios ON avaliacao.id_usuarios = usuarios.id
+JOIN produto ON avaliacao.produto_id = produto.id;
+>>>>>>> b88be70a4c1fcb200eec5719c49dc3a0a804b2f9
