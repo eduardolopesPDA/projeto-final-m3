@@ -456,3 +456,17 @@ FROM avaliacao a
 JOIN usuarios u ON a.id_usuarios = u.id
 WHERE a.produto_id = 1;
 
+-- lista todos os usuários cadastrados
+SELECT id, nome, email, telefone, data_criacao FROM usuarios;
+
+-- lista todas as compras realizadas e os usuários que as fizeram.
+SELECT compra.id AS ID_Compra, usuarios.nome AS Cliente, compra.valor_total, compra.data
+FROM compra
+INNER JOIN usuarios ON compra.id_usuarios = usuarios.id;
+
+-- lista a quantidade de produtos em cada categoria
+SELECT c.nome AS categoria, COUNT(p.id) AS total_produtos
+FROM categoria c
+LEFT JOIN produto p ON c.id = p.id_categoria
+GROUP BY c.nome;
+
