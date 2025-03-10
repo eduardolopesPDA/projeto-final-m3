@@ -470,3 +470,21 @@ FROM categoria c
 LEFT JOIN produto p ON c.id = p.id_categoria
 GROUP BY c.nome;
 
+-- produtos categorias e donos
+SELECT p.id, p.nome AS produto, p.descricao, p.preco, p.estoque, c.nome AS categoria, u.nome AS dono
+FROM produto p
+JOIN categoria c ON p.id_categoria = c.id
+JOIN usuarios u ON p.id_usuarios = u.id;
+
+-- usuarios data da compra e valor total da compra 
+SELECT co.id, u.nome AS usuario, co.data, co.valor_total
+FROM compra co
+JOIN usuarios u ON co.id_usuarios = u.id
+ORDER BY co.data DESC;
+
+-- produtos nota e total de avaliações 
+SELECT p.nome AS produto, AVG(a.nota) AS media_nota, COUNT(a.id) AS total_avaliacoes
+FROM avaliacao a
+JOIN produto p ON a.produto_id = p.id
+GROUP BY p.id, p.nome
+ORDER BY media_nota DESC;
