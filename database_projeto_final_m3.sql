@@ -326,37 +326,36 @@ CALL InserirUsuario('Lucas Rocha', 'Rua I, 606', 'lucas@email.com', 'senha606', 
 CALL InserirUsuario('Carla Ferreira', 'Rua J, 707', 'carla@email.com', 'senha707', '11987654330');
 -- 2
 CALL InserirCategoria('Eletrônicos', 'Aparelhos eletrônicos em geral');
-CALL InserirCategoria('Roupas', 'Vestuário masculino e feminino');
-CALL InserirCategoria('Alimentos', 'Produtos alimentícios variados');
-CALL InserirCategoria('Livros', 'Livros de diversos gêneros');
-CALL InserirCategoria('Brinquedos', 'Brinquedos para crianças de todas as idades');
-CALL InserirCategoria('Móveis', 'Móveis para casa e escritório');
-CALL InserirCategoria('Esportes', 'Artigos esportivos e fitness');
-CALL InserirCategoria('Ferramentas', 'Ferramentas para construção e manutenção');
-CALL InserirCategoria('Automotivo', 'Produtos e acessórios para automóveis');
-CALL InserirCategoria('Beleza', 'Produtos de beleza e cuidados pessoais');
+CALL InserirCategoria('Celulares', 'Smartphones e acessórios');
+CALL InserirCategoria('Computadores', 'Desktops, notebooks e acessórios');
+CALL InserirCategoria('TVs', 'Televisores, 4K, LED, Smart TVs');
+CALL InserirCategoria('Áudio e Som', 'Caixas de som, fones de ouvido e sistemas de áudio');
+CALL InserirCategoria('Câmeras', 'Câmeras digitais e câmeras de segurança');
+CALL InserirCategoria('Eletroportáteis', 'Pequenos eletrodomésticos como liquidificadores, cafeteiras e ferros de passar');
+CALL InserirCategoria('Gaming', 'Consoles, jogos e acessórios de videogame');
 
-CALL InserirCatalogo(1, 'Coleção Verão', 'Roupas para a estação mais quente do ano');
-CALL InserirCatalogo(2, 'Promoção de Eletrônicos', 'Descontos imperdíveis');
-CALL InserirCatalogo(3, 'Livros Recomendados', 'Os mais vendidos do mês');
-CALL InserirCatalogo(4, 'Brinquedos Educativos', 'Para aprender brincando');
-CALL InserirCatalogo(5, 'Suplementos Esportivos', 'Para melhorar sua performance');
-CALL InserirCatalogo(6, 'Ferramentas de Qualidade', 'Para profissionais e hobbistas');
-CALL InserirCatalogo(7, 'Promoção Automotiva', 'Descontos em peças e acessórios');
-CALL InserirCatalogo(8, 'Beleza e Cuidado', 'Novidades em cosméticos');
-CALL InserirCatalogo(9, 'Moveis para sua Casa', 'Design e conforto');
-CALL InserirCatalogo(10, 'Produtos Gourmet', 'Para os amantes da boa comida');
+CALL InserirCatalogo(1, 'Liquidificadores', 'Os melhores modelos para sua cozinha');
+CALL InserirCatalogo(2, 'Cafeteiras', 'Prepare um café delicioso todos os dias');
+CALL InserirCatalogo(3, 'Fritadeiras Elétricas', 'Praticidade e sabor sem óleo');
+CALL InserirCatalogo(4, 'Aspiradores de Pó', 'Mantenha sua casa sempre limpa');
+CALL InserirCatalogo(5, 'Ferro de Passar', 'Roupas sempre impecáveis com facilidade');
+CALL InserirCatalogo(6, 'Batedeiras', 'Facilite suas receitas com eficiência');
+CALL InserirCatalogo(7, 'Sanduicheiras', 'Lanches rápidos e saborosos');
+CALL InserirCatalogo(8, 'Purificadores de Água', 'Água limpa e saudável todos os dias');
+CALL InserirCatalogo(9, 'Forno Elétrico', 'Mais praticidade no preparo das refeições');
+CALL InserirCatalogo(10, 'Micro-ondas', 'Esquente e prepare alimentos rapidamente');
+
 -- 4
-CALL InserirProduto(1, 1, 'Smartphone X', 'Celular de última geração', 2500.00, 10, 'Marca A');
-CALL InserirProduto(2, 2, 'Camisa Polo', 'Camisa social confortável', 99.90, 50, 'Marca B');
-CALL InserirProduto(3, 3, 'Chocolate 70%', 'Chocolate amargo gourmet', 15.50, 200, 'Marca C');
-CALL InserirProduto(4, 4, 'Livro de Programação', 'Aprenda a programar em Python', 79.90, 30, 'Editora D');
-CALL InserirProduto(5, 5, 'Carrinho de Controle Remoto', 'Brinquedo elétrico', 120.00, 20, 'Marca E');
-CALL InserirProduto(6, 6, 'Sofá 3 lugares', 'Sofá confortável', 1500.00, 5, 'Marca F');
-CALL InserirProduto(7, 7, 'Bola de Futebol', 'Bola oficial de campeonato', 89.90, 40, 'Marca G');
-CALL InserirProduto(8, 8, 'Chave de Fenda', 'Conjunto de chaves variadas', 49.90, 100, 'Marca H');
-CALL InserirProduto(9, 9, 'Óleo para Motor', 'Óleo sintético para carros', 59.90, 30, 'Marca I');
-CALL InserirProduto(10, 10, 'Perfume Floral', 'Fragrância refrescante', 199.90, 15, 'Marca J');
+CALL InserirProduto(21, 4, 'Máquina de Lavar 7kg', 'Lavadora automática com 7kg de capacidade e 8 programas', 1299.90, 15, 'Marca L');
+CALL InserirProduto(22, 4, 'Máquina de Lavar 10kg', 'Lavadora de roupas com capacidade para 10kg e painel digital', 1799.90, 20, 'Marca M');
+CALL InserirProduto(23, 4, 'Máquina de Lavar 12kg', 'Máquina de lavar com 12kg de capacidade e tecnologia de lavagem rápida', 2299.90, 10, 'Marca N');
+CALL InserirProduto(24, 4, 'Máquina de Lavar 15kg', 'Lavadora com 15kg de capacidade e economia de água', 2899.90, 12, 'Marca O');
+CALL InserirProduto(25, 4, 'Máquina de Lavar 8kg', 'Lavadora automática com 8kg e sistema anti-formiga', 1499.90, 25, 'Marca P');
+CALL InserirProduto(26, 4, 'Máquina de Lavar 18kg', 'Lavadora industrial com capacidade de 18kg e função turbo', 3499.90, 8, 'Marca Q');
+CALL InserirProduto(27, 4, 'Máquina de Lavar 11kg', 'Lavadora 11kg com tecnologia Eco Bubble', 1999.90, 18, 'Marca R');
+CALL InserirProduto(28, 4, 'Máquina de Lavar 9kg', 'Lavadora com 9kg de capacidade e painel de controle touch', 1699.90, 22, 'Marca S');
+
+
 
 
 
