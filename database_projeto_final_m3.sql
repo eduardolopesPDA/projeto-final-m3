@@ -530,3 +530,21 @@ ja volto
         ELSE 'Entrega atrasada'
     END AS status_entrega
 FROM entrega e;
+
+
+--Essa consulta retorna todos os produtos com suas respectivas categorias.
+SELECT produto.id, produto.nome AS produto, categoria.nome AS categoria, produto.preco, produto.estoque
+FROM produto
+JOIN categoria ON produto.id_categoria = categoria.id;
+
+--Essa consulta exibe todas as compras feitas por um usuário com base no ID do usuário.
+SELECT compra.id, usuarios.nome AS usuario, compra.valor_total, compra.data
+FROM compra
+JOIN usuarios ON compra.id_usuarios = usuarios.id
+WHERE usuarios.id = 1; -- Substitua pelo ID desejado
+
+--Essa consulta exibe todas as compras feitas por um usuário com base no ID do usuário.
+SELECT avaliacao.id, usuarios.nome AS usuario, produto.nome AS produto, avaliacao.nota, avaliacao.comentario, avaliacao.data
+FROM avaliacao
+JOIN usuarios ON avaliacao.id_usuarios = usuarios.id
+JOIN produto ON avaliacao.produto_id = produto.id;
