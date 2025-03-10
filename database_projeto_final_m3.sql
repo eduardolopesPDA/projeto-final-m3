@@ -488,3 +488,45 @@ FROM avaliacao a
 JOIN produto p ON a.produto_id = p.id
 GROUP BY p.id, p.nome
 ORDER BY media_nota DESC;
+
+
+-- Consulta para verificar a categoria do produto com base no preço
+
+SELECT 
+    nome,
+    preco,
+    CASE 
+        WHEN preco < 100 THEN 'Barato'
+        WHEN preco BETWEEN 100 AND 1000 THEN 'Médio'
+        ELSE 'Caro'
+    END AS categoria_preco
+FROM produto;
+
+-- Consulta para classificar os usuários com base
+
+SELECT 
+    u.nome,
+    COUNT(c.id) AS total_compras,
+    CASE 
+        WHEN COUNT(c.id) = 0 THEN 'Nenhuma compra'
+        WHEN COUNT(c.id) BETWEEN 1 AND 5 THEN 'Comprador Casual'
+        WHEN COUNT(c.id) BETWEEN 6 AND 10 THEN 'Comprador Frequente'
+        ELSE 'Comprador VIP'
+    END AS classificacao
+FROM usuarios u
+LEFT JOIN compra c ON u.id = c.id_usuarios
+GROUP BY u.id, u.nome;
+ja volto
+-- Consulta para verificar
+ 
+ SELECT 
+    e.compra_id,
+    e.endereco,
+    e.data_prevista,
+    e.data_entrega,
+    CASE 
+        WHEN e.data_entrega IS NULL THEN 'A caminho'
+        WHEN e.data_entrega <= e.data_prevista THEN 'Entregue no prazo'
+        ELSE 'Entrega atrasada'
+    END AS status_entrega
+FROM entrega e;
