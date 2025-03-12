@@ -314,46 +314,51 @@ BEGIN
     VALUES (p_chat_id, p_avaliacao_id, p_produto_id, p_motivo);
 END //
 DELIMITER ;
-CALL InserirUsuario('João Silva', 'Rua A, 123', 'joao@email.com', 'senha123', '11987654321');
-CALL InserirUsuario('Maria Oliveira', 'Rua B, 456', 'maria@email.com', 'senha456', '11987654322');
-CALL InserirUsuario('Carlos Souza', 'Rua C, 789', 'carlos@email.com', 'senha789', '11987654323');
-CALL InserirUsuario('Ana Lima', 'Rua D, 101', 'ana@email.com', 'senha101', '11987654324');
-CALL InserirUsuario('Pedro Santos', 'Rua E, 202', 'pedro@email.com', 'senha202', '11987654325');
-CALL InserirUsuario('Fernanda Costa', 'Rua F, 303', 'fernanda@email.com', 'senha303', '11987654326');
-CALL InserirUsuario('Ricardo Mendes', 'Rua G, 404', 'ricardo@email.com', 'senha404', '11987654327');
-CALL InserirUsuario('Juliana Martins', 'Rua H, 505', 'juliana@email.com', 'senha505', '11987654328');
-CALL InserirUsuario('Lucas Rocha', 'Rua I, 606', 'lucas@email.com', 'senha606', '11987654329');
-CALL InserirUsuario('Carla Ferreira', 'Rua J, 707', 'carla@email.com', 'senha707', '11987654330');
--- 2
-CALL InserirCategoria('Eletrônicos', 'Aparelhos eletrônicos em geral');
-CALL InserirCategoria('Celulares', 'Smartphones e acessórios');
-CALL InserirCategoria('Computadores', 'Desktops, notebooks e acessórios');
-CALL InserirCategoria('TVs', 'Televisores, 4K, LED, Smart TVs');
-CALL InserirCategoria('Áudio e Som', 'Caixas de som, fones de ouvido e sistemas de áudio');
-CALL InserirCategoria('Câmeras', 'Câmeras digitais e câmeras de segurança');
-CALL InserirCategoria('Eletroportáteis', 'Pequenos eletrodomésticos como liquidificadores, cafeteiras e ferros de passar');
-CALL InserirCategoria('Gaming', 'Consoles, jogos e acessórios de videogame');
+CALL InserirUsuario('João Silva', 'Rua A, 123', 'joao.silva@email.com', 'senha123', '11987654321');
+CALL InserirUsuario('Maria Oliveira', 'Rua B, 456', 'maria.oliveira@email.com', 'senha456', '11987654322');
+CALL InserirUsuario('Carlos Souza', 'Rua C, 789', 'carlos.souza@email.com', 'senha789', '11987654323');
+CALL InserirUsuario('Ana Lima', 'Rua D, 101', 'ana.lima@email.com', 'senha101', '11987654324');
+CALL InserirUsuario('Pedro Santos', 'Rua E, 202', 'pedro.santos@email.com', 'senha202', '11987654325');
+CALL InserirUsuario('Fernanda Costa', 'Rua F, 303', 'fernanda.costa@email.com', 'senha303', '11987654326');
+CALL InserirUsuario('Ricardo Mendes', 'Rua G, 404', 'ricardo.mendes@email.com', 'senha404', '11987654327');
+CALL InserirUsuario('Juliana Martins', 'Rua H, 505', 'juliana.martins@email.com', 'senha505', '11987654328');
+CALL InserirUsuario('Lucas Rocha', 'Rua I, 606', 'lucas.rocha@email.com', 'senha606', '11987654329');
+CALL InserirUsuario('Carla Ferreira', 'Rua J, 707', 'carla.ferreira@email.com', 'senha707', '11987654330');
 
-CALL InserirCatalogo(1, 'Liquidificadores', 'Os melhores modelos para sua cozinha');
-CALL InserirCatalogo(2, 'Cafeteiras', 'Prepare um café delicioso todos os dias');
-CALL InserirCatalogo(3, 'Fritadeiras Elétricas', 'Praticidade e sabor sem óleo');
-CALL InserirCatalogo(4, 'Aspiradores de Pó', 'Mantenha sua casa sempre limpa');
-CALL InserirCatalogo(5, 'Ferro de Passar', 'Roupas sempre impecáveis com facilidade');
-CALL InserirCatalogo(6, 'Batedeiras', 'Facilite suas receitas com eficiência');
-CALL InserirCatalogo(7, 'Sanduicheiras', 'Lanches rápidos e saborosos');
-CALL InserirCatalogo(8, 'Purificadores de Água', 'Água limpa e saudável todos os dias');
-CALL InserirCatalogo(9, 'Forno Elétrico', 'Mais praticidade no preparo das refeições');
-CALL InserirCatalogo(10, 'Micro-ondas', 'Esquente e prepare alimentos rapidamente');
+-- 2
+CALL InserirCategoria('Eletrônicos', 'Aparelhos eletrônicos, gadgets e dispositivos para uso diário');
+CALL InserirCategoria('Celulares', 'Smartphones, acessórios e produtos relacionados a celulares');
+CALL InserirCategoria('Computadores', 'Desktops, notebooks e todos os acessórios relacionados');
+CALL InserirCategoria('TVs', 'Televisores com tecnologia 4K, LED e Smart TVs');
+CALL InserirCategoria('Áudio e Som', 'Caixas de som, fones de ouvido, sistemas de som e acessórios');
+CALL InserirCategoria('Câmeras', 'Câmeras digitais, câmeras de segurança e acessórios fotográficos');
+CALL InserirCategoria('Eletroportáteis', 'Pequenos eletrodomésticos como liquidificadores, cafeteiras e ferros de passar');
+CALL InserirCategoria('Gaming', 'Consoles de videogame, jogos e acessórios para gamers');
+-- 3
+CALL InserirProduto(1, 1, 'Smartphone X', 'Smartphone de última geração com processador de 8 núcleos e 128GB de armazenamento', 2500.00, 10, 'Marca A');
+CALL InserirProduto(2, 1, 'Notebook Ultra', 'Notebook ultrafino e potente com 16GB de RAM e 512GB SSD', 4500.00, 8, 'Marca B');
+CALL InserirProduto(3, 1, 'Fone de Ouvido Bluetooth', 'Fone de ouvido sem fio com cancelamento de ruído ativo e até 20 horas de bateria', 299.90, 25, 'Marca C');
+CALL InserirProduto(4, 1, 'Smart TV 55"', 'TV 4K com HDR, controle remoto inteligente e compatível com assistentes virtuais', 3200.00, 12, 'Marca D');
+CALL InserirProduto(5, 1, 'Console de Videogame', 'Console de última geração com suporte para jogos em 4K e 1TB de armazenamento', 3500.00, 15, 'Marca E');
+CALL InserirProduto(6, 1, 'Tablet Pro', 'Tablet com tela de 10.5", caneta digital inclusa e 256GB de armazenamento', 2800.00, 10, 'Marca F');
+CALL InserirProduto(7, 1, 'Câmera DSLR', 'Câmera profissional com lente 18-55mm e sensor full-frame', 5200.00, 5, 'Marca G');
+CALL InserirProduto(8, 1, 'Mouse Gamer', 'Mouse RGB com 6 botões e DPI ajustável de até 16.000', 150.00, 40, 'Marca H');
+CALL InserirProduto(9, 1, 'Roteador Wi-Fi 6', 'Roteador Wi-Fi 6 com 3000 Mbps de velocidade e cobertura de até 500 metros quadrados', 350.00, 20, 'Marca I');
+CALL InserirProduto(10, 1, 'Carregador Portátil 20.000mAh', 'Carregador portátil com 20.000mAh de capacidade, entrada USB-C e 3 portas USB', 180.00, 30, 'Marca J');
+
 
 -- 4
-CALL InserirProduto(21, 4, 'Máquina de Lavar 7kg', 'Lavadora automática com 7kg de capacidade e 8 programas', 1299.90, 15, 'Marca L');
-CALL InserirProduto(22, 4, 'Máquina de Lavar 10kg', 'Lavadora de roupas com capacidade para 10kg e painel digital', 1799.90, 20, 'Marca M');
-CALL InserirProduto(23, 4, 'Máquina de Lavar 12kg', 'Máquina de lavar com 12kg de capacidade e tecnologia de lavagem rápida', 2299.90, 10, 'Marca N');
-CALL InserirProduto(24, 4, 'Máquina de Lavar 15kg', 'Lavadora com 15kg de capacidade e economia de água', 2899.90, 12, 'Marca O');
-CALL InserirProduto(25, 4, 'Máquina de Lavar 8kg', 'Lavadora automática com 8kg e sistema anti-formiga', 1499.90, 25, 'Marca P');
-CALL InserirProduto(26, 4, 'Máquina de Lavar 18kg', 'Lavadora industrial com capacidade de 18kg e função turbo', 3499.90, 8, 'Marca Q');
-CALL InserirProduto(27, 4, 'Máquina de Lavar 11kg', 'Lavadora 11kg com tecnologia Eco Bubble', 1999.90, 18, 'Marca R');
-CALL InserirProduto(28, 4, 'Máquina de Lavar 9kg', 'Lavadora com 9kg de capacidade e painel de controle touch', 1699.90, 22, 'Marca S');
+CALL InserirCompra(1, 5000.00);  -- Compras de produtos de maior valor
+CALL InserirCompra(2, 200.00);   -- Compras de baixo valor
+CALL InserirCompra(3, 77.50);    -- Compras intermediárias
+CALL InserirCompra(4, 150.00);   
+CALL InserirCompra(5, 320.00);   
+CALL InserirCompra(6, 1800.00);  
+CALL InserirCompra(7, 270.00);   
+CALL InserirCompra(8, 200.00);   
+CALL InserirCompra(9, 89.90);    
+CALL InserirCompra(10, 300.00);  
+
 
 
 
@@ -361,16 +366,17 @@ CALL InserirProduto(28, 4, 'Máquina de Lavar 9kg', 'Lavadora com 9kg de capacid
 
 
 -- 5
-CALL InserirCarrinho(1);
-CALL InserirCarrinho(2);
-CALL InserirCarrinho(3);
-CALL InserirCarrinho(4);
-CALL InserirCarrinho(5);
-CALL InserirCarrinho(6);
-CALL InserirCarrinho(7);
-CALL InserirCarrinho(8);
-CALL InserirCarrinho(9);
-CALL InserirCarrinho(10);
+CALL InserirEntrega(1, 'Rua A, 123', '2025-03-15', '2025-03-20');
+CALL InserirEntrega(2, 'Rua B, 456', '2025-03-16', '2025-03-26');
+CALL InserirEntrega(3, 'Rua C, 789', '2025-03-17', '2025-03-23');
+CALL InserirEntrega(4, 'Rua D, 101', '2025-03-18', '2025-03-27');
+CALL InserirEntrega(5, 'Rua E, 202', '2025-03-19', '2025-03-24');
+CALL InserirEntrega(6, 'Rua F, 303', '2025-03-20', '2025-03-30');
+CALL InserirEntrega(7, 'Rua G, 404', '2025-03-21', '2025-03-29');
+CALL InserirEntrega(8, 'Rua H, 505', '2025-03-22', '2025-03-28');
+CALL InserirEntrega(9, 'Rua I, 606', '2025-03-23', '2025-03-31');
+CALL InserirEntrega(10, 'Rua J, 707', '2025-03-24', '2025-04-01');
+
  
  
  -- 6
@@ -400,61 +406,64 @@ CALL InserirCompra(9, 89.90);
 CALL InserirCompra(10, 300.00);
 
 -- 8
-CALL InserirEntrega(1, 'Rua A, 123', '2025-03-15', '2025-03-20');
- -- CALL InserirEntrega(2, 'Rua B, 456', '2025-03-16', '2025-03-26'); 
-CALL InserirEntrega(3, 'Rua C, 789', '2025-03-17', '2025-03-23');
-CALL InserirEntrega(4, 'Rua D, 101', '2025-03-18', '2025-03-27');
-CALL InserirEntrega(5, 'Rua E, 202', '2025-03-19', '2025-03-24');
-CALL InserirEntrega(6, 'Rua F, 303', '2025-03-20', '2025-03-30');
-CALL InserirEntrega(7, 'Rua G, 404', '2025-03-21', '2025-03-29');
-CALL InserirEntrega(8, 'Rua H, 505', '2025-03-22', '2025-03-28');
-CALL InserirEntrega(9, 'Rua I, 606', '2025-03-23', '2025-03-31');
-CALL InserirEntrega(10, 'Rua J, 707', '2025-03-24', '2025-04-01');
+CALL InserirEntrega(1, 'Rua São João, 123, Centro', '2025-03-15', '2025-03-18');  -- Entrega mais rápida
+CALL InserirEntrega(2, 'Avenida Brasil, 456, Jardim das Flores', '2025-03-16', '2025-03-20');  -- Evitar duplicação de datas
+CALL InserirEntrega(3, 'Rua Coração Azul, 789, Vila Nova', '2025-03-17', '2025-03-22');  -- Entrega com intervalo maior
+CALL InserirEntrega(4, 'Praça da Liberdade, 101, Bairro Central', '2025-03-18', '2025-03-24');  -- Envio dentro de prazo razoável
+CALL InserirEntrega(5, 'Rua das Palmeiras, 202, Vila Rica', '2025-03-19', '2025-03-23');
+CALL InserirEntrega(6, 'Rua das Acácias, 303, Jardim Verde', '2025-03-20', '2025-03-25');  -- Prazo mais curto
+CALL InserirEntrega(7, 'Avenida Paulista, 404, Bela Vista', '2025-03-21', '2025-03-26');  -- Entrega mais demorada
+CALL InserirEntrega(8, 'Rua das Flores, 505, Jardim das Aves', '2025-03-22', '2025-03-27');
+CALL InserirEntrega(9, 'Rua do Sol, 606, Loteamento Esperança', '2025-03-23', '2025-03-28');
+CALL InserirEntrega(10, 'Rua do Rio, 707, Zona Norte', '2025-03-24', '2025-03-29');  -- Melhor distribuição de datas
+
 
 
 -- 9
--- CALL InserirAvaliacao(1, 1, 5, 'Ótimo');
-CALL InserirAvaliacao(2, 2, 4, 'Bom');
-CALL InserirAvaliacao(3, 3, 3, 'Médio');
-CALL InserirAvaliacao(4, 4, 5, 'Ótimo');
-CALL InserirAvaliacao(5, 5, 4, 'Bom');
-CALL InserirAvaliacao(6, 6, 5, 'Ótimo');
-CALL InserirAvaliacao(7, 7, 3, 'Médio');
-CALL InserirAvaliacao(8, 8, 4, 'Bom');
-CALL InserirAvaliacao(9, 9, 2, 'Ruim');
-CALL InserirAvaliacao(10, 10, 3, 'Ok');
+-- Avaliações com mais variação nas notas e comentários
+CALL InserirAvaliacao(1, 1, 5, 'Produto excelente, superou as expectativas!');
+CALL InserirAvaliacao(2, 2, 4, 'Bom, mas poderia ter mais funcionalidades.');
+CALL InserirAvaliacao(3, 3, 3, 'Produto mediano, atende ao básico, mas nada além disso.');
+CALL InserirAvaliacao(4, 4, 5, 'Qualidade incrível, vale cada centavo!');
+CALL InserirAvaliacao(5, 5, 4, 'Bom produto, entrega rápida, mas o preço poderia ser mais acessível.');
+CALL InserirAvaliacao(6, 6, 5, 'Ótimo! Funciona perfeitamente, estou muito satisfeito.');
+CALL InserirAvaliacao(7, 7, 3, 'O produto é bom, mas apresentou alguns defeitos logo no início.');
+CALL InserirAvaliacao(8, 8, 4, 'Produto bom e bem acabado, mas a embalagem poderia ser mais segura.');
+CALL InserirAvaliacao(9, 9, 2, 'Não gostei do produto, ele não atendeu às minhas expectativas.');
+CALL InserirAvaliacao(10, 10, 3, 'Ok, mas o atendimento ao cliente foi ruim.');
 
 
 
 -- 10 
-
--- CALL InserirPagamento(1, 1, 'Cartão de Crédito', 5000.00);
--- CALL InserirPagamento(2, 2, 'Boleto', 200.00);
+-- Pagamentos com maior diversidade de valores e formas
+CALL InserirPagamento(1, 1, 'Cartão de Crédito', 2500.00);
+CALL InserirPagamento(2, 2, 'Boleto', 200.00);
 CALL InserirPagamento(3, 3, 'Pix', 77.50);
 CALL InserirPagamento(4, 4, 'Cartão de Débito', 150.00);
-CALL InserirPagamento(5, 5, 'Cartão de Crédito', 320.00);
+CALL InserirPagamento(5, 5, 'Cartão de Crédito', 3200.00);
 CALL InserirPagamento(6, 6, 'Boleto', 1800.00);
-CALL InserirPagamento(7, 7, 'Pix', 270.00);
+CALL InserirPagamento(7, 7, 'Pix', 500.00);
 CALL InserirPagamento(8, 8, 'Cartão de Débito', 200.00);
 CALL InserirPagamento(9, 9, 'Pix', 89.90);
-CALL InserirPagamento(10, 10, 'Cartão de Crédito', 300.00);
+CALL InserirPagamento(10, 10, 'Cartão de Crédito', 1500.00);
 
 
--- produto que foi enviado entre as data 1 entre 31
-SELECT * FROM entrega WHERE data_prevista BETWEEN '2025-03-01' AND '2025-03-31';
-
-
--- Esta consulta retorna produtos que foram comprados, ou seja, que estão na tabela item_carrinho e possuem uma compra associada.
-SELECT DISTINCT p.id, p.nome, p.descricao, p.preco, p.estoque, p.marca
+-- . Consulta para listar todos os produtos de uma categoria específica
+SELECT p.id, p.nome, p.descricao, p.preco, p.estoque, c.nome AS categoria
 FROM produto p
-JOIN item_carrinho ic ON p.id = ic.produto_id
-JOIN compra c ON ic.carrinho_id = c.id_usuarios;
+JOIN categoria c ON p.id_categoria = c.id
+WHERE c.nome = 'Eletrônicos';
+-- Consulta para listar o histórico de compras de um usuário
+SELECT co.id AS compra_id, co.data, co.valor_total
+FROM compra co
+WHERE co.id_usuarios = 1;
 
--- lista uma avaliação de uma pessoa em um produto especifico 
-SELECT u.nome, a.nota, a.comentario 
-FROM avaliacao a
-JOIN usuarios u ON a.id_usuarios = u.id
-WHERE a.produto_id = 1;
+
+-- seleciona os dados da tabelas
+SELECT * FROM categoria;
+SELECT * FROM produto;
+
+
 
 -- lista todos os usuários cadastrados
 SELECT id, nome, email, telefone, data_criacao FROM usuarios;
@@ -550,12 +559,12 @@ GROUP BY u.id, u.nome;
 FROM entrega e;
 
 
---Essa consulta retorna todos os produtos com suas respectivas categorias.
+-- Essa consulta retorna todos os produtos com suas respectivas categorias.
 SELECT produto.id, produto.nome AS produto, categoria.nome AS categoria, produto.preco, produto.estoque
 FROM produto
 JOIN categoria ON produto.id_categoria = categoria.id;
 
---Essa consulta exibe todas as compras feitas por um usuário com base no ID do usuário.
+-- Essa consulta exibe todas as compras feitas por um usuário com base no ID do usuário.
 SELECT compra.id, usuarios.nome AS usuario, compra.valor_total, compra.data
 FROM compra
 JOIN usuarios ON compra.id_usuarios = usuarios.id
