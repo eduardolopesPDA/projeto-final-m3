@@ -498,23 +498,6 @@ JOIN produto p ON a.produto_id = p.id
 GROUP BY p.id, p.nome
 ORDER BY media_nota DESC;
 
--- Lista as categorias que possuem mais de 10 produtos cadastrados
-SELECT c.nome AS categoria, COUNT(p.id) AS total_produtos
-FROM categoria c
-JOIN produto p ON c.id = p.id_categoria
-GROUP BY c.nome
-HAVING COUNT(p.id) > 10;
-
--- Mostra a média de valor das compras realizadas
-SELECT ROUND(AVG(valor_total), 2) AS media_valor_compras
-FROM compra;
-
--- Lista a média de preço dos produtos por categoria
-SELECT c.nome AS categoria, ROUND(AVG(p.preco), 2) AS preco_medio
-FROM categoria c
-JOIN produto p ON c.id = p.id_categoria
-GROUP BY c.nome
-ORDER BY preco_medio DESC;
 
 
 -- Consulta para verificar a categoria do produto com base no preço
@@ -612,4 +595,24 @@ SELECT * FROM compra WHERE id_usuarios = 1;
 	
 	
 
+-- media por avaliação
+SELECT p.nome AS produto, AVG(a.nota) AS media_avaliacao
+FROM produto p
+JOIN avaliacao a ON p.id = a.produto_id
+GROUP BY p.nome
+ORDER BY media_avaliacao DESC;
 
+-- total por usuario
+SELECT u.nome AS usuario, COUNT(c.id) AS total_compras
+FROM usuarios u
+JOIN compra c ON u.id = c.id_usuarios
+GROUP BY u.nome
+ORDER BY total_compras DESC;
+
+-- mais vendidos 
+SELECT p.nome AS produto, SUM(ic.quantidade) AS total_vendido
+FROM item_carrinho ic
+JOIN produto p ON ic.produto_id = p.id
+GROUP BY p.nome
+ORDER BY total_vendido DESC
+LIMIT 10;
