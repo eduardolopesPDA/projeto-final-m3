@@ -413,7 +413,7 @@ CALL InserirEntrega(10, 'Rua J, 707', '2025-03-24', '2025-04-01');
 
 
 -- 9
-CALL InserirAvaliacao(1, 1, 5, 'Ótimo');
+-- CALL InserirAvaliacao(1, 1, 5, 'Ótimo');
 CALL InserirAvaliacao(2, 2, 4, 'Bom');
 CALL InserirAvaliacao(3, 3, 3, 'Médio');
 CALL InserirAvaliacao(4, 4, 5, 'Ótimo');
@@ -427,7 +427,8 @@ CALL InserirAvaliacao(10, 10, 3, 'Ok');
 
 
 -- 10 
-CALL InserirPagamento(1, 1, 'Cartão de Crédito', 5000.00);
+
+-- CALL InserirPagamento(1, 1, 'Cartão de Crédito', 5000.00);
 -- CALL InserirPagamento(2, 2, 'Boleto', 200.00);
 CALL InserirPagamento(3, 3, 'Pix', 77.50);
 CALL InserirPagamento(4, 4, 'Cartão de Débito', 150.00);
@@ -488,7 +489,6 @@ JOIN produto p ON a.produto_id = p.id
 GROUP BY p.id, p.nome
 ORDER BY media_nota DESC;
 
-<<<<<<< HEAD
 -- Lista as categorias que possuem mais de 10 produtos cadastrados
 SELECT c.nome AS categoria, COUNT(p.id) AS total_produtos
 FROM categoria c
@@ -506,7 +506,7 @@ FROM categoria c
 JOIN produto p ON c.id = p.id_categoria
 GROUP BY c.nome
 ORDER BY preco_medio DESC;
-=======
+
 
 -- Consulta para verificar a categoria do produto com base no preço
 
@@ -534,7 +534,7 @@ SELECT
 FROM usuarios u
 LEFT JOIN compra c ON u.id = c.id_usuarios
 GROUP BY u.id, u.nome;
-ja volto
+
 -- Consulta para verificar
  
  SELECT 
@@ -561,9 +561,46 @@ FROM compra
 JOIN usuarios ON compra.id_usuarios = usuarios.id
 WHERE usuarios.id = 1; -- Substitua pelo ID desejado
 
---Essa consulta exibe todas as compras feitas por um usuário com base no ID do usuário.
+-- Essa consulta exibe todas as compras feitas por um usuário com base no ID do usuário.
 SELECT avaliacao.id, usuarios.nome AS usuario, produto.nome AS produto, avaliacao.nota, avaliacao.comentario, avaliacao.data
 FROM avaliacao
 JOIN usuarios ON avaliacao.id_usuarios = usuarios.id
 JOIN produto ON avaliacao.produto_id = produto.id;
->>>>>>> b88be70a4c1fcb200eec5719c49dc3a0a804b2f9
+
+-- b88be70a4c1fcb200eec5719c49dc3a0a804b2f9
+
+SELECT * from categoria;
+-- selecionando a categoria 
+ SELECT estoque, nome,
+ CASE
+	when estoque =0 then "Foram de estoque"
+    when estoque between 1 and 5 then "estoque baixo"
+    else "Disponivel" 
+    end as status_estoque
+    from produto;
+
+-- Listar todos os produtos com suas categorias e donos
+
+SELECT 
+    compra.id, 
+    compra.data, 
+    compra.valor_total
+FROM compra
+WHERE compra.id_usuarios = 1;
+
+
+-- Buscar status de entrega de uma compra
+
+SELECT e.*, c.valor_total 
+FROM entrega e
+JOIN compra c ON e.compra_id = c.id
+WHERE e.compra_id = 1;
+
+-- Listar todas as compras de um usuário
+
+
+SELECT * FROM compra WHERE id_usuarios = 1;
+	
+	
+
+
